@@ -28,7 +28,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import Box from '@material-ui/core/Box';
 import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices';
 import cyan from '@material-ui/core/colors/cyan';
-import faker from 'faker';
+import coderIcon from './images/coder-icon.jpg';
 
 import {
   makeStyles,
@@ -136,7 +136,7 @@ function ResponsiveDrawer(props) {
           Roman Nikolaenkov
         </Typography>
         <Box className={classes.avatar} display="flex" justifyContent="center">
-          <img src={faker.image.avatar()} alt="developer" />
+          <img src={coderIcon} alt="developer" width="100px" height="100px" />
         </Box>
       </Box>
       <Box

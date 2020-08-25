@@ -2,8 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import StarIcon from '@material-ui/icons/Star';
-import faker from 'faker';
 import Box from '@material-ui/core/Box';
+import viktorImage from '../images/testimonials/viktor.jpeg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,15 +34,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Testimonial() {
+export default function Testimonial({ name, text }) {
   // const theme = useTheme();
   const classes = useStyles();
 
   return (
     <Box className={classes.root} align="center" my={4}>
       <Paper className={classes.testimonial}>
-        <img src={faker.image.avatar()} alt="person" />
-        <div className={classes.name}>{faker.name.firstName()}</div>
+        <img src={viktorImage} alt="person" />
+        <div className={classes.name}>{name}</div>
         <div className={classes.stars}>
           <StarIcon />
           <StarIcon />
@@ -50,12 +50,7 @@ export default function Testimonial() {
           <StarIcon />
           <StarIcon />
         </div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia,
-          labore consectetur iure delectus porro fugiat placeat doloremque
-          possimus id laborum? Harum autem pariatur obcaecati quas numquam
-          provident modi quo maiores.
-        </p>
+        <p>{text}</p>
       </Paper>
     </Box>
   );

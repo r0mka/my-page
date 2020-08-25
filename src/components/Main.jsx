@@ -327,11 +327,20 @@ export default function Main(props) {
         </Typography>
 
         <Box display="flex" flexWrap="wrap" justifyContent="space-between">
-          <Testimonial />
+          <Testimonial
+            name="Viktor"
+            text="Roman is a brilliant front end developer! Roman is a brilliant front end developer! Roman is a brilliant front end developer! Roman is a brilliant front end developer! Roman is a brilliant front end developer!"
+          />
 
-          <Testimonial />
+          <Testimonial
+            name="Viktor's Twin"
+            text="Roman is a brilliant front end developer! Roman is a brilliant front end developer! Roman is a brilliant front end developer! Roman is a brilliant front end developer! Roman is a brilliant front end developer!"
+          />
 
-          <Testimonial />
+          <Testimonial
+            name="Viktor's Ghost"
+            text="Roman is a brilliant front end developer! Roman is a brilliant front end developer! Roman is a brilliant front end developer! Roman is a brilliant front end developer! Roman is a brilliant front end developer!"
+          />
         </Box>
       </Container>
       <Container className={classes.container}>

@@ -1,10 +1,9 @@
 import React from 'react';
-import { useTheme, makeStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import StarIcon from '@material-ui/icons/Star';
-import avatar from '../images/avatar.jpg';
 import faker from 'faker';
-import Card from '@material-ui/core/Card';
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,6 +12,11 @@ const useStyles = makeStyles((theme) => ({
       width: '100px',
       height: '100px',
       borderRadius: '50%',
+    },
+
+    width: '30%',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
     },
   },
   testimonial: {
@@ -31,11 +35,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Testimonial() {
-  const theme = useTheme;
+  // const theme = useTheme();
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <Box className={classes.root} align="center" my={4}>
       <Paper className={classes.testimonial}>
         {/* <Card> */}
         <img src={faker.image.avatar()} alt="person" />
@@ -55,6 +59,6 @@ export default function Testimonial() {
         </p>
         {/* </Card> */}
       </Paper>
-    </div>
+    </Box>
   );
 }

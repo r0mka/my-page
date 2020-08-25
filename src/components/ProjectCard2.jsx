@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -10,24 +10,36 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // maxWidth: 345,
-    flex: 1,
-    margin: 16,
+    // flex: 1,
+    maxWidth: '47%',
+    margin: '32px 0',
     color: theme.palette.grey[400],
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: '100%',
+    },
   },
 }));
 
 export default function ImgMediaCard() {
   const classes = useStyles();
-  const theme = useTheme();
+  // const theme = useTheme();
+  const [hover, setHovering] = React.useState(false);
+
   return (
-    <Card className={classes.root}>
+    <Card
+      className={classes.root}
+      onMouseOver={() => setHovering(true)}
+      onMouseOut={() => setHovering(false)}
+    >
       <CardActionArea>
         <CardMedia
           component="img"
           alt="Contemplative Reptile"
           height="280"
-          image="../images/simpsons.gif"
+          // image="../images/simpsons-still.jpg"
+          image={
+            hover ? '../images/simpsons.gif' : '../images/simpsons-still.jpg'
+          }
           title="Contemplative Reptile"
         />
         <CardContent>

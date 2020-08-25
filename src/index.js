@@ -1,45 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import logo from './logo.svg';
 import Button from '@material-ui/core/Button';
-
 import './index.css';
 import './App.css';
-import Navigation from './components/Navigation';
 import Main from './components/Main';
 import ComputerIcon from '@material-ui/icons/Computer';
 import PersonIcon from '@material-ui/icons/Person';
-import EmailIcon from '@material-ui/icons/Email';
 import DescriptionIcon from '@material-ui/icons/Description';
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
-import IconButton from '@material-ui/core/IconButton';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MailIcon from '@material-ui/icons/Mail';
-import MenuIcon from '@material-ui/icons/Menu';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices';
-// import deepPurple from '@material-ui/core/colors/purple';
-import deepPurple from '@material-ui/core/colors/deepPurple';
 import cyan from '@material-ui/core/colors/cyan';
-import teal from '@material-ui/core/colors/teal';
 
 import {
   makeStyles,
   useTheme,
   createMuiTheme,
   ThemeProvider,
-  withTheme,
 } from '@material-ui/core/styles';
 
 const drawerWidth = 240;
@@ -61,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
-      // width: '100%',
       marginLeft: drawerWidth,
     },
     [theme.breakpoints.down('sm')]: {
@@ -173,7 +158,7 @@ function ResponsiveDrawer(props) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar}>
+      {/* <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -188,7 +173,7 @@ function ResponsiveDrawer(props) {
             My Page
           </Typography>
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
       <nav className={classes.drawer} aria-label="mailbox folders">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">
@@ -246,12 +231,12 @@ const theme = createMuiTheme({
     },
   },
   palette: {
-    primary: {
-      light: '#757ce8',
-      main: '#3f50b5',
-      dark: '#002884',
-      contrastText: '#fff',
-    },
+    // primary: {
+    //   light: '#757ce8',
+    //   main: '#3f50b5',
+    //   dark: '#002884',
+    //   contrastText: '#fff',
+    // },
     primary: {
       // main: deepPurple.A200,
       // main: cyan[500],

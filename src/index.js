@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom';
 import Button from '@material-ui/core/Button';
 import './index.css';
 import './App.css';
+
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import Typography from '@material-ui/core/Typography';
 import Main from './components/Main';
 import ComputerIcon from '@material-ui/icons/Computer';
 import PersonIcon from '@material-ui/icons/Person';
@@ -48,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
+      display: 'none',
     },
     [theme.breakpoints.down('sm')]: {
       width: '100%',
@@ -139,16 +146,6 @@ function ResponsiveDrawer(props) {
           Hire Me
         </Button>
       </Box>
-      {/* <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List> */}
     </div>
   );
 
@@ -158,7 +155,7 @@ function ResponsiveDrawer(props) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      {/* <AppBar position="fixed" className={classes.appBar}>
+      <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -173,7 +170,7 @@ function ResponsiveDrawer(props) {
             My Page
           </Typography>
         </Toolbar>
-      </AppBar> */}
+      </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">
@@ -254,6 +251,20 @@ const theme = createMuiTheme({
     background: {
       paper: '#1e2a3a',
       default: '#111821',
+    },
+  },
+  breakpoints: {
+    // values: {
+    //   tablet: 640,
+    //   laptop: 1024,
+    //   desktop: 1280,
+    // },
+    values: {
+      xs: 300,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
     },
   },
 });

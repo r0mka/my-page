@@ -41,7 +41,6 @@ export default function Testimonial() {
   return (
     <Box className={classes.root} align="center" my={4}>
       <Paper className={classes.testimonial}>
-        {/* <Card> */}
         <img src={faker.image.avatar()} alt="person" />
         <div className={classes.name}>{faker.name.firstName()}</div>
         <div className={classes.stars}>
@@ -57,7 +56,6 @@ export default function Testimonial() {
           possimus id laborum? Harum autem pariatur obcaecati quas numquam
           provident modi quo maiores.
         </p>
-        {/* </Card> */}
       </Paper>
     </Box>
   );

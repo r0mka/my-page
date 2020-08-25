@@ -27,7 +27,12 @@ const useStyles = makeStyles((theme) => ({
   },
 
   // necessary for content to be below app bar
-  toolbar: theme.mixins.toolbar,
+  toolbar: {
+    ...theme.mixins.toolbar,
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
+    },
+  },
   content: {
     flexGrow: 1,
     color: theme.palette.grey[400],
@@ -39,6 +44,9 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     padding: 64,
+    [theme.breakpoints.down('xs')]: {
+      padding: 12,
+    },
   },
   hero: {
     padding: 64,
@@ -51,7 +59,14 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     // backgroundColor: '#ff0000',
+    [theme.breakpoints.down('xs')]: {
+      padding: 12,
+    },
   },
+  nameHeading: {
+    fontSize: '32px',
+  },
+
   intro: {
     // width: '500px',
     [theme.breakpoints.up('sm')]: {
@@ -61,6 +76,7 @@ const useStyles = makeStyles((theme) => ({
   },
   subtitle: {
     fontSize: 24,
+    color: theme.palette.primary.main,
   },
 
   sectionTitle: {
@@ -72,6 +88,7 @@ const useStyles = makeStyles((theme) => ({
 
   button: {
     marginRight: theme.spacing(1),
+    marginBottom: theme.spacing(2),
   },
 
   article: {
@@ -96,9 +113,9 @@ export default function Main(props) {
 
   return (
     <main className={classes.content}>
-      {/* <div className={classes.toolbar} /> */}
+      <div className={classes.toolbar} />
       <Container className={`${classes.hero}`}>
-        <Typography variant="h2" gutterBottom>
+        <Typography variant="h2" gutterBottom className={classes.nameHeading}>
           Roman Nikolaenkov
         </Typography>
         <Typography className={classes.subtitle} gutterBottom>
@@ -326,9 +343,6 @@ export default function Main(props) {
           Featured Projects
         </Typography>
         <Box display="flex" flexWrap="wrap" justifyContent="space-between">
-          {/* <ProjectCard2 />
-          <ProjectCard2 />
-          <ProjectCard2 /> */}
           <ProjectCard2 />
           <ProjectCard2 />
         </Box>

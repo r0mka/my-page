@@ -12,6 +12,8 @@ import Typography from '@material-ui/core/Typography';
 import Main from './components/Main';
 import ComputerIcon from '@material-ui/icons/Computer';
 import PersonIcon from '@material-ui/icons/Person';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import DescriptionIcon from '@material-ui/icons/Description';
 import PropTypes from 'prop-types';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -26,6 +28,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import Box from '@material-ui/core/Box';
 import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices';
 import cyan from '@material-ui/core/colors/cyan';
+import faker from 'faker';
 
 import {
   makeStyles,
@@ -50,16 +53,40 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
+  devCard: {
+    '& h1': {
+      fontSize: theme.typography.pxToRem(32),
+      textAlign: 'center',
+      marginBottom: theme.typography.pxToRem(24),
+      marginTop: theme.typography.pxToRem(24),
+      color: theme.palette.common.white,
+    },
+  },
+  devCardIcons: {
+    '& svg': {
+      margin: theme.spacing(1),
+    },
+  },
+  avatar: {
+    marginBottom: theme.typography.pxToRem(24),
+    '& img': {
+      borderRadius: '50%',
+    },
+  },
   appBar: {
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
+      // display: 'none',
+    },
+    [theme.breakpoints.up('md')]: {
       display: 'none',
     },
     [theme.breakpoints.down('sm')]: {
       width: '100%',
     },
   },
+
   menuButton: {
     marginRight: theme.spacing(2),
     [theme.breakpoints.up('md')]: {
@@ -74,11 +101,6 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.grey[400],
     '& svg': {
       color: theme.palette.grey[400],
-    },
-  },
-  menuListItem: {
-    '& :hover': {
-      // backgroundColor: theme.palette.common.white,
     },
   },
 
@@ -107,9 +129,27 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div>
-      <div className={classes.toolbar} />
+      {/* <div className={classes.toolbar} /> */}
+      {/* <Divider /> */}
+      <Box className={classes.devCard}>
+        <Typography variant="h1" gutterBottom>
+          Roman Nikolaenkov
+        </Typography>
+        <Box className={classes.avatar} display="flex" justifyContent="center">
+          <img src={faker.image.avatar()} alt="developer" />
+        </Box>
+      </Box>
+      <Box
+        className={classes.devCardIcons}
+        display="flex"
+        justifyContent="center"
+        m={4}
+      >
+        <GitHubIcon style={{ fontSize: 40, color: cyan[500] }} />
+        <LinkedInIcon style={{ fontSize: 40, color: cyan[500] }} />
+      </Box>
       <Divider />
-      <List>
+      <List className={classes.menuList}>
         <ListItem button className={classes.menuListItem}>
           <ListItemIcon>
             <PersonIcon />
@@ -216,34 +256,9 @@ ResponsiveDrawer.propTypes = {
 };
 
 const theme = createMuiTheme({
-  overrides: {
-    MuiCssBaseline: {
-      '@global': {
-        body: {
-          // backgroundColor: '#ffffff',
-          // backgroundColor: '#151e29',
-          // backgroundColor: '#111821',
-        },
-      },
-    },
-  },
   palette: {
-    // primary: {
-    //   light: '#757ce8',
-    //   main: '#3f50b5',
-    //   dark: '#002884',
-    //   contrastText: '#fff',
-    // },
     primary: {
-      // main: deepPurple.A200,
-      // main: cyan[500],
       main: cyan[500],
-    },
-    secondary: {
-      light: '#ff7961',
-      main: '#f44336',
-      dark: '#ba000d',
-      contrastText: '#000',
     },
     action: {
       hover: '#111821',
@@ -254,11 +269,6 @@ const theme = createMuiTheme({
     },
   },
   breakpoints: {
-    // values: {
-    //   tablet: 640,
-    //   laptop: 1024,
-    //   desktop: 1280,
-    // },
     values: {
       xs: 300,
       sm: 600,

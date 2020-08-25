@@ -8,7 +8,7 @@ import ComputerIcon from '@material-ui/icons/Computer';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import ProjectCard2 from './ProjectCard2';
+import ProjectCard from './ProjectCard';
 import Testimonial from './Testimonial';
 import js from '../images/logos/vanilajs.svg';
 import html from '../images/logos/html.svg';
@@ -29,18 +29,17 @@ const useStyles = makeStyles((theme) => ({
   // necessary for content to be below app bar
   toolbar: {
     ...theme.mixins.toolbar,
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       display: 'none',
     },
   },
+
   content: {
     flexGrow: 1,
     color: theme.palette.grey[400],
     '& h2': {
       color: theme.palette.common.white,
     },
-    // padding: theme.spacing(3),
-    // backgroundColor: theme.palette.common.white,
   },
   container: {
     padding: 64,
@@ -50,7 +49,6 @@ const useStyles = makeStyles((theme) => ({
   },
   hero: {
     padding: 64,
-    // backgroundColor: theme.palette.grey[200],
     backgroundImage:
       'linear-gradient(rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0)), url(' +
       BackgroundHeader +
@@ -58,7 +56,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    // backgroundColor: '#ff0000',
     [theme.breakpoints.down('xs')]: {
       padding: 12,
     },
@@ -68,7 +65,6 @@ const useStyles = makeStyles((theme) => ({
   },
 
   intro: {
-    // width: '500px',
     [theme.breakpoints.up('sm')]: {
       width: '550px',
       fontSize: '18px',
@@ -343,8 +339,8 @@ export default function Main(props) {
           Featured Projects
         </Typography>
         <Box display="flex" flexWrap="wrap" justifyContent="space-between">
-          <ProjectCard2 />
-          <ProjectCard2 />
+          <ProjectCard />
+          <ProjectCard />
         </Box>
       </Container>
     </main>

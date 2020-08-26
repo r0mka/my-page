@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import faker from 'faker';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,39 +21,44 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ImgMediaCard() {
+export default function ImgMediaCard({ img, gif, title, text, linkUrl }) {
   const classes = useStyles();
   // const theme = useTheme();
 
+  const [hovering, setHovering] = React.useState(false);
+
   return (
-    <Card className={classes.root}>
+    <Card
+      className={classes.root}
+      onMouseOver={() => setHovering(true)}
+      onMouseOut={() => setHovering(false)}
+    >
       <CardActionArea>
         <CardMedia
           component="img"
-          alt="Contemplative Reptile"
+          alt={title}
           height="280"
-          image={faker.image.image()}
+          image={hovering ? gif : img}
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Project 1
+            {title}
           </Typography>
           <Typography variant="body2" component="p">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident
-            repellendus minus ab veritatis voluptatibus facilis dolorum. Harum
-            rem sit doloribus esse dolores quas, facilis in, voluptates incidunt
-            amet tempore necessitatibus!
+            {text}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Share
+          <Link href={linkUrl} target="_blank" color="inherit">
+            Live Demo
+          </Link>
         </Button>
-        <Button size="small" color="primary">
+        {/* <Button size="small" color="primary">
           Learn More
-        </Button>
+        </Button> */}
       </CardActions>
     </Card>
   );

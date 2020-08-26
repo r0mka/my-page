@@ -9,7 +9,7 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import ProjectCard from './ProjectCard';
-import Testimonial from './Testimonial';
+// import Testimonial from './Testimonial';
 import js from '../images/logos/vanilajs.svg';
 import html from '../images/logos/html.svg';
 import css from '../images/logos/css.svg';
@@ -19,7 +19,32 @@ import materialUi from '../images/logos/material-ui.svg';
 import bootstrap from '../images/logos/bootstrap.svg';
 import typescript from '../images/logos/typescript.svg';
 import aws from '../images/logos/aws.svg';
+import redux from '../images/logos/redux.svg';
+import python from '../images/logos/python.svg';
 import BackgroundHeader from '../images/background/1.jpg';
+import githubBattleGif from '../images/projects/github-battle.gif';
+import githubBattlePng from '../images/projects/github-battle.png';
+import todolistGif from '../images/projects/todolist.gif';
+import todolistPng from '../images/projects/todolist.png';
+
+const projectData = {
+  githubApi: {
+    img: githubBattlePng,
+    gif: githubBattleGif,
+    title: 'Github API Demo',
+    text:
+      'Makes requests to the Github API and fetches popular repos by programming laguage. Battle Component receives github names as inputs and searches github accounts asscociated with the given names. Then it calculates a score for each player based on the number of starred repos and followers and determins who won',
+    link: 'https://practical-nightingale-6128ff.netlify.app',
+  },
+  todolist: {
+    img: todolistPng,
+    gif: todolistGif,
+    title: 'Draggable Tasks with React, Redux, Node, MongoDB',
+    text:
+      'You can Create Read Update Delete Tasks. It also utilizes react-beautiful-dnd library that enables creation of draggable elements. You can rearange the tasks by clicking on them with a mouse or a finger on a touchpad or a smart phone and dragging them in a new position. All changes will persist in mondoDb database on MongoAtlas. The backend was written in Node.js In order to make asyncronous requests I used axios library. The frontend is also connected to the redux store and uses redux-thunk to make asynchronous requests to the server and then update the state.',
+    link: 'https://musing-leavitt-70fc91.netlify.app/',
+  },
+};
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -118,9 +143,10 @@ export default function Main(props) {
           Software Engineer
         </Typography>
         <Typography paragraph gutterBottom className={classes.intro}>
-          I'm a software engineer specialised in frontend and backend
-          development for complex scalable web apps. Want to know how I may help
-          your project? Check out my project portfolio and online resume.
+          I'm a software engineer specialised in frontend development and am
+          currently learning backend development for complex scalable web apps.
+          Want to know how I may help your project? Check out my project
+          portfolio and online resume.
         </Typography>
         <Box my={5}>
           <Button
@@ -273,6 +299,40 @@ export default function Main(props) {
               justifyContent="space-around"
             >
               <Box display="flex" justifyContent="center">
+                <img width="100px" height="100px" src={redux} alt="bootstrap" />
+              </Box>
+              <Box color={theme.palette.grey[400]} my={2}>
+                <Typography align="center" variant="h5">
+                  REDUX
+                </Typography>
+              </Box>
+            </Box>
+          </Paper>
+        </Box>
+        <Box align="center">
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            startIcon={<ImportantDevicesIcon />}
+          >
+            Hire Me
+          </Button>
+        </Box>
+      </Container>
+      <Container className={classes.container}>
+        <Typography className={classes.sectionTitle} variant="h3" gutterBottom>
+          Currently Learning
+        </Typography>
+        <Box className={classes.article}>
+          <Paper elevation={3} className={classes.skillCard}>
+            <Box
+              height="100%"
+              display="flex"
+              flexDirection="column"
+              justifyContent="space-around"
+            >
+              <Box display="flex" justifyContent="center">
                 <img
                   width="100px"
                   height="100px"
@@ -309,19 +369,31 @@ export default function Main(props) {
               </Box>
             </Box>
           </Paper>
-        </Box>
-        <Box align="center">
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.button}
-            startIcon={<ImportantDevicesIcon />}
-          >
-            Hire Me
-          </Button>
+          <Paper elevation={3} className={classes.skillCard}>
+            <Box
+              height="100%"
+              display="flex"
+              flexDirection="column"
+              justifyContent="space-around"
+            >
+              <Box display="flex" justifyContent="center">
+                <img
+                  width="100px"
+                  height="100px"
+                  src={python}
+                  alt="python programming language"
+                />
+              </Box>
+              <Box color={theme.palette.grey[400]} my={2}>
+                <Typography align="center" variant="h5">
+                  PYTHON
+                </Typography>
+              </Box>
+            </Box>
+          </Paper>
         </Box>
       </Container>
-      <Container className={classes.container}>
+      {/* <Container className={classes.container}>
         <Typography className={classes.sectionTitle} variant="h3" gutterBottom>
           Testimonials
         </Typography>
@@ -342,14 +414,26 @@ export default function Main(props) {
             text="Roman is a brilliant front end developer! Roman is a brilliant front end developer! Roman is a brilliant front end developer! Roman is a brilliant front end developer! Roman is a brilliant front end developer!"
           />
         </Box>
-      </Container>
+      </Container> */}
       <Container className={classes.container}>
         <Typography className={classes.sectionTitle} variant="h3" gutterBottom>
           Featured Projects
         </Typography>
         <Box display="flex" flexWrap="wrap" justifyContent="space-between">
-          <ProjectCard />
-          <ProjectCard />
+          <ProjectCard
+            img={projectData.githubApi.img}
+            gif={projectData.githubApi.gif}
+            title={projectData.githubApi.title}
+            text={projectData.githubApi.text}
+            linkUrl={projectData.githubApi.link}
+          />
+          <ProjectCard
+            img={projectData.todolist.img}
+            gif={projectData.todolist.gif}
+            title={projectData.todolist.title}
+            text={projectData.todolist.text}
+            linkUrl={projectData.todolist.link}
+          />
         </Box>
       </Container>
     </main>

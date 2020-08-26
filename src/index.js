@@ -25,6 +25,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MailIcon from '@material-ui/icons/Mail';
+import Link from '@material-ui/core/Link';
 import Box from '@material-ui/core/Box';
 import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices';
 import cyan from '@material-ui/core/colors/cyan';
@@ -145,8 +146,12 @@ function ResponsiveDrawer(props) {
         justifyContent="center"
         m={4}
       >
-        <GitHubIcon style={{ fontSize: 40, color: cyan[500] }} />
-        <LinkedInIcon style={{ fontSize: 40, color: cyan[500] }} />
+        <Link href="https://github.com/r0mka/" target="_blank" color="inherit">
+          <GitHubIcon style={{ fontSize: 40, color: cyan[500] }} />
+        </Link>
+        <Link href="https://linkedin.com" target="_blank" color="inherit">
+          <LinkedInIcon style={{ fontSize: 40, color: cyan[500] }} />
+        </Link>
       </Box>
       <Divider />
       <List className={classes.menuList}>
@@ -162,12 +167,19 @@ function ResponsiveDrawer(props) {
           </ListItemIcon>
           <ListItemText primary="Portfolio" />
         </ListItem>
-        <ListItem button className={classes.menuListItem}>
-          <ListItemIcon>
-            <DescriptionIcon />
-          </ListItemIcon>
-          <ListItemText primary="Resume" />
-        </ListItem>
+
+        <Link
+          href="https://drive.google.com/file/d/1fd8-u5RuunyPyaBqptdpEqvcpK8y5J4U/view?usp=sharing"
+          target="_blank"
+          color="inherit"
+        >
+          <ListItem button className={classes.menuListItem}>
+            <ListItemIcon>
+              <DescriptionIcon />
+            </ListItemIcon>
+            <ListItemText primary="Resume" />
+          </ListItem>
+        </Link>
         <ListItem button className={classes.menuListItem}>
           <ListItemIcon>
             <MailIcon />
@@ -207,7 +219,7 @@ function ResponsiveDrawer(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            My Page
+            Built With React.js
           </Typography>
         </Toolbar>
       </AppBar>

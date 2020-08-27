@@ -26,6 +26,8 @@ import githubBattleGif from '../images/projects/github-battle.gif';
 import githubBattlePng from '../images/projects/github-battle.png';
 import todolistGif from '../images/projects/todolist.gif';
 import todolistPng from '../images/projects/todolist.png';
+import Link from '@material-ui/core/Link';
+import Divider from '@material-ui/core/Divider';
 
 const projectData = {
   githubApi: {
@@ -128,7 +130,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Main(props) {
+export default function Main({ goToPortfolio, goToContact }) {
+  window.scrollTo(0, 0);
+
   const classes = useStyles();
   const theme = useTheme();
 
@@ -143,10 +147,10 @@ export default function Main(props) {
           Software Engineer
         </Typography>
         <Typography paragraph gutterBottom className={classes.intro}>
-          I'm a software engineer specialised in frontend development and am
-          currently learning backend development for complex scalable web apps.
-          Want to know how I may help your project? Check out my project
-          portfolio and online resume.
+          I'm a software engineer based in Los Angeles, CA and specialised in
+          frontend development and am currently learning backend development for
+          complex scalable web apps. Want to know how I may help your project?
+          Check out my project portfolio and online resume.
         </Typography>
         <Box my={5}>
           <Button
@@ -154,6 +158,7 @@ export default function Main(props) {
             color="primary"
             className={classes.button}
             startIcon={<ComputerIcon />}
+            onClick={goToPortfolio}
           >
             View Portfolio
           </Button>
@@ -163,7 +168,9 @@ export default function Main(props) {
             className={classes.button}
             startIcon={<DescriptionIcon />}
           >
-            View Resume
+            <Link href="https://linkedin.com" target="_blank" color="inherit">
+              View Resume
+            </Link>
           </Button>
         </Box>
       </Container>
@@ -309,17 +316,8 @@ export default function Main(props) {
             </Box>
           </Paper>
         </Box>
-        <Box align="center">
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.button}
-            startIcon={<ImportantDevicesIcon />}
-          >
-            Hire Me
-          </Button>
-        </Box>
       </Container>
+      <Divider />
       <Container className={classes.container}>
         <Typography className={classes.sectionTitle} variant="h3" gutterBottom>
           Currently Learning
@@ -392,6 +390,40 @@ export default function Main(props) {
             </Box>
           </Paper>
         </Box>
+        <Box align="center">
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            startIcon={<ImportantDevicesIcon />}
+            onClick={goToContact}
+          >
+            Hire Me
+          </Button>
+        </Box>
+      </Container>
+      <Divider />
+
+      <Container className={classes.container}>
+        <Typography className={classes.sectionTitle} variant="h3" gutterBottom>
+          Featured Projects
+        </Typography>
+        <Box display="flex" flexWrap="wrap" justifyContent="space-between">
+          <ProjectCard
+            img={projectData.githubApi.img}
+            gif={projectData.githubApi.gif}
+            title={projectData.githubApi.title}
+            text={projectData.githubApi.text}
+            linkUrl={projectData.githubApi.link}
+          />
+          <ProjectCard
+            img={projectData.todolist.img}
+            gif={projectData.todolist.gif}
+            title={projectData.todolist.title}
+            text={projectData.todolist.text}
+            linkUrl={projectData.todolist.link}
+          />
+        </Box>
       </Container>
       {/* <Container className={classes.container}>
         <Typography className={classes.sectionTitle} variant="h3" gutterBottom>
@@ -415,27 +447,6 @@ export default function Main(props) {
           />
         </Box>
       </Container> */}
-      <Container className={classes.container}>
-        <Typography className={classes.sectionTitle} variant="h3" gutterBottom>
-          Featured Projects
-        </Typography>
-        <Box display="flex" flexWrap="wrap" justifyContent="space-between">
-          <ProjectCard
-            img={projectData.githubApi.img}
-            gif={projectData.githubApi.gif}
-            title={projectData.githubApi.title}
-            text={projectData.githubApi.text}
-            linkUrl={projectData.githubApi.link}
-          />
-          <ProjectCard
-            img={projectData.todolist.img}
-            gif={projectData.todolist.gif}
-            title={projectData.todolist.title}
-            text={projectData.todolist.text}
-            linkUrl={projectData.todolist.link}
-          />
-        </Box>
-      </Container>
     </main>
   );
 }

@@ -39,7 +39,7 @@ export default function ImgMediaCard({ img, gif, title, text, linkUrl }) {
           alt={title}
           height="280"
           image={hovering ? gif : img}
-          title="Contemplative Reptile"
+          title={title}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">

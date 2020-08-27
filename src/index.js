@@ -30,6 +30,8 @@ import Box from '@material-ui/core/Box';
 import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices';
 import cyan from '@material-ui/core/colors/cyan';
 import coderIcon from './images/coder-icon.jpg';
+import Contact from './components/Contact';
+import Portfolio from './components/./Portfolio';
 
 import {
   makeStyles,
@@ -94,6 +96,7 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
+
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
@@ -104,7 +107,12 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.grey[400],
     },
   },
-
+  activeLink: {
+    color: theme.palette.primary.main,
+    '& svg': {
+      color: theme.palette.primary.main,
+    },
+  },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
@@ -127,6 +135,15 @@ function ResponsiveDrawer(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+  const keyToComponentMap = {
+    contact: Contact,
+    aboutMe: Main,
+    portfolio: Portfolio,
+  };
+
+  const pages = ['aboutMe', 'portfolio', 'resume', 'contact'];
+
+  const [page, setPage] = React.useState(pages[0]);
 
   const drawer = (
     <div>
@@ -155,38 +172,59 @@ function ResponsiveDrawer(props) {
       </Box>
       <Divider />
       <List className={classes.menuList}>
-        <ListItem button className={classes.menuListItem}>
+        <ListItem
+          button
+          className={page === 'aboutMe' ? classes.activeLink : null}
+          onClick={() => {
+            setMobileOpen(false);
+            setPage('aboutMe');
+          }}
+        >
           <ListItemIcon>
             <PersonIcon />
           </ListItemIcon>
           <ListItemText primary="About Me" />
         </ListItem>
-        <ListItem button className={classes.menuListItem}>
+        <ListItem
+          button
+          className={page === 'portfolio' ? classes.activeLink : null}
+          onClick={() => {
+            setMobileOpen(false);
+            setPage('portfolio');
+          }}
+        >
           <ListItemIcon>
             <ComputerIcon />
           </ListItemIcon>
           <ListItemText primary="Portfolio" />
         </ListItem>
 
-        <Link
-          href="https://drive.google.com/file/d/1fd8-u5RuunyPyaBqptdpEqvcpK8y5J4U/view?usp=sharing"
-          target="_blank"
-          color="inherit"
+        <ListItem
+          button
+          onClick={() => {
+            setMobileOpen(false);
+            setPage('contact');
+          }}
+          className={page === 'contact' ? classes.activeLink : null}
         >
-          <ListItem button className={classes.menuListItem}>
-            <ListItemIcon>
-              <DescriptionIcon />
-            </ListItemIcon>
-            <ListItemText primary="Resume" />
-          </ListItem>
-        </Link>
-        <ListItem button className={classes.menuListItem}>
           <ListItemIcon>
             <MailIcon />
           </ListItemIcon>
           <ListItemText primary="Contact" />
         </ListItem>
       </List>
+      <Link
+        href="https://drive.google.com/file/d/1fd8-u5RuunyPyaBqptdpEqvcpK8y5J4U/view?usp=sharing"
+        target="_blank"
+        color="inherit"
+      >
+        <ListItem button className={classes.menuListItem}>
+          <ListItemIcon>
+            <DescriptionIcon />
+          </ListItemIcon>
+          <ListItemText primary="Resume" />
+        </ListItem>
+      </Link>
       <Divider />
       <Box display="flex" justifyContent="center" m={3}>
         <Button
@@ -194,6 +232,10 @@ function ResponsiveDrawer(props) {
           color="primary"
           className={classes.button}
           startIcon={<ImportantDevicesIcon />}
+          onClick={() => {
+            setMobileOpen(false);
+            setPage('contact');
+          }}
         >
           Hire Me
         </Button>
@@ -254,7 +296,13 @@ function ResponsiveDrawer(props) {
           </Drawer>
         </Hidden>
       </nav>
-      <Main />
+      {/* <Main /> */}
+      {/* <Contact /> */}
+      {keyToComponentMap[page]({
+        goToPortfolio: () => setPage('portfolio'),
+        goToContact: () => setPage('contact'),
+      })}
+      {/* <Portfolio /> */}
     </div>
   );
 }

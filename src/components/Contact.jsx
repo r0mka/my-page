@@ -106,7 +106,11 @@ export default function Contact(props) {
               romanliveshere@gmail.com
             </Link>
             or call
-            <Link href="#" color="inherit" className={classes.emailLink}>
+            <Link
+              href="tel:213-422-0423"
+              color="inherit"
+              className={classes.emailLink}
+            >
               +1(213)422-0423
             </Link>
           </Typography>
@@ -128,7 +132,11 @@ export default function Contact(props) {
               <GitHubIcon style={{ fontSize: 40, color: cyan[500] }} />
               <Typography>Github</Typography>
             </Link>
-            <Link href="https://linkedin.com" target="_blank" color="inherit">
+            <Link
+              href="https://linkedin.com/in/r0mka"
+              target="_blank"
+              color="inherit"
+            >
               <LinkedInIcon style={{ fontSize: 40, color: cyan[500] }} />
               <Typography>Linkedin</Typography>
             </Link>

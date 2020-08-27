@@ -168,7 +168,11 @@ export default function Main({ goToPortfolio, goToContact }) {
             className={classes.button}
             startIcon={<DescriptionIcon />}
           >
-            <Link href="https://linkedin.com" target="_blank" color="inherit">
+            <Link
+              href="https://drive.google.com/file/d/1TinQuUufep6jV8_FQt21q8ah02C0OUno/view?usp=sharing"
+              target="_blank"
+              color="inherit"
+            >
               View Resume
             </Link>
           </Button>

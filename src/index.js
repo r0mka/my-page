@@ -166,7 +166,11 @@ function ResponsiveDrawer(props) {
         <Link href="https://github.com/r0mka/" target="_blank" color="inherit">
           <GitHubIcon style={{ fontSize: 40, color: cyan[500] }} />
         </Link>
-        <Link href="https://linkedin.com" target="_blank" color="inherit">
+        <Link
+          href="https://linkedin.com/in/r0mka"
+          target="_blank"
+          color="inherit"
+        >
           <LinkedInIcon style={{ fontSize: 40, color: cyan[500] }} />
         </Link>
       </Box>
@@ -214,7 +218,7 @@ function ResponsiveDrawer(props) {
         </ListItem>
       </List>
       <Link
-        href="https://drive.google.com/file/d/1fd8-u5RuunyPyaBqptdpEqvcpK8y5J4U/view?usp=sharing"
+        href="https://drive.google.com/file/d/1TinQuUufep6jV8_FQt21q8ah02C0OUno/view?usp=sharing"
         target="_blank"
         color="inherit"
       >

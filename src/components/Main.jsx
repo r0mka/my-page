@@ -43,7 +43,7 @@ const projectData = {
     gif: todolistGif,
     title: 'Draggable Tasks with React, Redux, Node, MongoDB',
     text:
-      'You can Create Read Update Delete Tasks. It also utilizes react-beautiful-dnd library that enables creation of draggable elements. You can rearange the tasks by clicking on them with a mouse or a finger on a touchpad or a smart phone and dragging them in a new position. All changes will persist in mondoDb database on MongoAtlas. The backend was written in Node.js In order to make asyncronous requests I used axios library. The frontend is also connected to the redux store and uses redux-thunk to make asynchronous requests to the server and then update the state.',
+      'You can Create Read Update Delete Tasks. It also utilizes react-beautiful-dnd library that enables creation of draggable elements. You can rearange the tasks by clicking on them with a mouse or a finger on a touchpad or on a smart phone and dragging them in a new position. All changes will persist in mondoDb database on MongoAtlas. The backend was written in Node.js In order to make asyncronous requests I used axios library. The frontend is also connected to the redux store and uses redux-thunk to make asynchronous requests to the server and then update the state.',
     link: 'https://musing-leavitt-70fc91.netlify.app/',
   },
 };

@@ -148,9 +148,10 @@ export default function Main({ goToPortfolio, goToContact }) {
         </Typography>
         <Typography paragraph gutterBottom className={classes.intro}>
           I'm a software engineer based in Los Angeles, CA and specialised in
-          frontend development and am currently learning backend development for
-          complex scalable web apps. Want to know how I may help your project?
-          Check out my project portfolio and online resume.
+          frontend development for complex scalable web apps. I am currently
+          learning backend development with NodeJS and TypeScript. Want to know
+          how I may help your project? Check out my project portfolio and online
+          resume.
         </Typography>
         <Box my={5}>
           <Button

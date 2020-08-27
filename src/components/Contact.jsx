@@ -107,7 +107,7 @@ export default function Contact(props) {
             </Link>
             or call
             <Link href="#" color="inherit" className={classes.emailLink}>
-              +1(214)422-0423
+              +1(213)422-0423
             </Link>
           </Typography>
           <Typography paragraph gutterBottom className={classes.contactInfo}>

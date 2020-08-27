@@ -147,7 +147,7 @@ export default function Main({ goToPortfolio, goToContact }) {
           Software Engineer
         </Typography>
         <Typography paragraph gutterBottom className={classes.intro}>
-          I'm a software engineer based in Los Angeles, CA and specialised in
+          I'm a software engineer based in Los Angeles, CA and specialized in
           frontend development for complex scalable web apps. I am currently
           learning backend development with NodeJS and TypeScript. Want to know
           how I may help your project? Check out my project portfolio and online
